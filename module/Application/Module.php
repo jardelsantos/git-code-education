@@ -19,6 +19,19 @@ class Module
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+	
+	// escutar / listens:"dispatch" event
+	// context: $this
+	// handler / callback / metodo: onDispatch()
+	// priority / prioridade: 100
+	// MvcEvent::EVENT_DISPATCH = 'dispatch'
+	$eventManager->attach(MvcEvent::EVENT_DISPATCH, array($this,'onDispatch'), 100);
+    }
+    
+    public function onDispatch(MvcEvent $e)
+    {
+	$vm = $e->getViewModel();
+	$vm->setVariable("categories", 'CATEGORY LIST');
     }
 
     public function getConfig()
