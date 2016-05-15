@@ -55,7 +55,27 @@ return array(
         ),
     ),
     'service_manager' => array(
-        'abstract_factories' => array(
+	'services' => array(
+	    'categories' => array(
+	        'barter',
+		'beauty',
+		'clothing',
+		'computer',
+		'entertainament',
+		'free',
+		'garden',
+		'general',
+		'health',
+		'household',
+		'phones',
+		'property',
+		'sporting',
+		'tools',
+		'transportation',
+		'wanted'
+	    )
+	),
+	'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
